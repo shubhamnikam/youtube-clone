@@ -1,0 +1,12 @@
+﻿using Domain.Events.Domain;
+
+namespace Infrastructure.MongoDb.DomainEventsDispatching
+{
+    public interface IDomainEventEmittersTracker
+    {
+        IReadOnlyList<IDomainEventEmitter> DomainEventEmitters { get; }
+        void Track(IDomainEventEmitter domainEventEmitter);
+        void Untrack(IDomainEventEmitter domainEventEmitter);
+        void Reset();
+    }
+}
